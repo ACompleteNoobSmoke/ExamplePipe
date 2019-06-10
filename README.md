@@ -1,8 +1,6 @@
 # 191006JTA
 
-# RussRevature
-
-Below you'll find a list of required technologies and useful resources. Please note that you are welcome to use different technologies if you are 
+Below you'll find a list of required technologies and useful resources. Please note that you are welcome to use different technologies if you are more comfortable with those, but you MUST know how to use them on your own.
 
 Software Development Kit and Runtime Environments
 =================================================
