@@ -20,7 +20,18 @@ public class NonAccessModifers {
  * synchronized: This is used for methods. It specifies that only
  * one thread at a time can access the method.
  * 
- * strictfp: 
+ * strictfp: Used for restricting floating-point calculations 
+ * and ensuring that we get the same result on every platform 
+ * while performing operations using the floating-point variable
+ * 
+ * native: The native keyword is applied to a method to indicate 
+ * that the method is implemented in native code (read: in another
+ * programming language)
+ *
+ *abstract: Allows us to declare an interface, class, or method as 
+ *“abstract”; abstract methods don’t have to provide implementations 
+ *whereas abstract classes can’t be instantiated and can contain 
+ *abstract methods
  */
 	public static int num;
 	public final String s = "";

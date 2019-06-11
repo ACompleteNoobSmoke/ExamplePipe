@@ -7,13 +7,14 @@ public class VariableArguments {
 	 * to as "var args" for short) in order to pass a variable number
 	 * of arguments for a method.
 	 */
+	
 	public static void main(String[] args) {
 		VariableArguments va = new VariableArguments();
 		System.out.println(va.add(5, 5));
 		
 		System.out.println(va.add(4, 4, 5));
 		
-		System.out.println(va.add(4, 5, 3, 2, 6, 7));
+		System.out.println(va.add(4, 5, 3, 2, 6, 7, 8, 8));
 		
 	}
 	
@@ -32,11 +33,9 @@ public class VariableArguments {
 	 */
 	public int add(int...s) {
 		int sum = 0;
-		
 		for(int i : s) {
 			sum += i;
 		}
-		
 		return sum;
 	}
 }
