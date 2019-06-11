@@ -66,7 +66,7 @@ Testing Tools
 Postman: https://www.getpostman.com/downloads/
 ----------------------------------------------
 
-Postman is used for testing RESTful APIs. We'll use it to send HTTP requests to our APIs in order to testthat we get the correct HTTP responses, etc.
+Postman is used for testing RESTful APIs. We'll use it to send HTTP requests to our APIs in order to test that we get the correct HTTP responses, etc.
 
 Additional Resources
 ====================
