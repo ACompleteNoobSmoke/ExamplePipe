@@ -13,8 +13,8 @@ Node.js: https://nodejs.org/en/download/
 ----------------------------------------
 Node provides a runtime environment for JavaScript, allowing developers to run JavaScript code outside of the browser.
 
-Version Control Tool
-====================
+Version Control Tools
+=====================
 
 Git: https://git-scm.com/downloads
 ----------------------------------
@@ -59,6 +59,14 @@ Amazon Web Services: https://aws.amazon.com/
 --------------------------------------------
 Amazon Web Services provides a wide array of cloud computing solutions, from databases to file servers.
 NOTE: Please sign up for your AWS account as soon as possible because the account verification process can take upward of an entire day.
+
+Testing Tools
+=============
+
+Postman: https://www.getpostman.com/downloads/
+----------------------------------------------
+
+Postman is used for testing RESTful APIs. We'll use it to send HTTP requests to our APIs in order to testthat we get the correct HTTP responses, etc.
 
 Additional Resources
 ====================
