@@ -1,0 +1,19 @@
+For project 0, you'll be making a banking app. This will
+be a console application. The project must demonstrate the
+following functionality at a bare minimum:
+
+*Must be written using Java
+*Users should be able to sign up for account, log in, and log out.
+*Users should be able to make deposits and withdrawals(so they should be able update their balances and have that info persist).
+*All data must persist through multiple runs of the application.
+*Users should be able to have different roles (e.g. admin, etc.)
+*Users should be able to create joint accounts.
+*Users should be able have different types of accounts (checking, etc.)
+*The app can have whatever theme you want. It doesn't necessarily have to be strictly a banking app, so be creative.
+
+Stretch Goals:
+*Use logging liberally throughout the project
+*Use JUnit to test the application
+*Write over 100,000 lines of code
+*Do 5 pushups every time you get a NullPointerException.
+*Don't do these last 3 stretch goals.
