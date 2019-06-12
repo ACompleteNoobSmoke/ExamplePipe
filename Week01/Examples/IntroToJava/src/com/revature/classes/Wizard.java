@@ -64,6 +64,7 @@ public class Wizard {
 	
 	public void castAnotherSpell() throws RuntimeException {
 		System.out.println("This doesn't have to be handled.");
+		throw new RuntimeException();
 	}
 	
 	public static void main(String[] args) {
