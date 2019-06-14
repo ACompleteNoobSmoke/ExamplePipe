@@ -2,6 +2,8 @@ package com.revature.strings;
 
 import com.revature.classes.Wizard;
 
+import static com.revature.fileio.FileExample.br;
+
 public class Strings {
 
 	Wizard w = new Wizard("harry");
