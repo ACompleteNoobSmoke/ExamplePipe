@@ -1,7 +1,7 @@
 package com.revature.repository;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.revature.model.User;
+import com.revature.util.ConnectionClosers;
 import com.revature.util.ConnectionFactory;
 
 public class PostgreSQLImpl implements UserRepository {
@@ -37,7 +38,7 @@ public class PostgreSQLImpl implements UserRepository {
 		
 		try {
 		conn = ConnectionFactory.getConnection();
-		final String SQL = "SELECT * FROM user";
+		final String SQL = "SELECT * FROM users";
 		stmt = conn.createStatement();
 		set = stmt.executeQuery(SQL);
 		
@@ -54,36 +55,106 @@ public class PostgreSQLImpl implements UserRepository {
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}finally {
-			conn.close();
-			stmt.close();
-			set.close();
-			//close your connection, statement, result set
+			//Close your connection, statement, and result set
+			ConnectionClosers.closeConnection(conn);
+			ConnectionClosers.closeStatement(stmt);
+			ConnectionClosers.closeResultSet(set);
 		}
-		
 		return users;
 	}
 
 	@Override
-	public void getUserById(int id) {
+	public User getUserById(int id) {
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		ResultSet set = null;
+		User u = null;
+		final String SQL = "SELECT * FROM users WHERE users_id = ?";
+		
+		try {
+			conn = ConnectionFactory.getConnection();
+			stmt = conn.prepareStatement(SQL);
+			stmt.setInt(1, id);
+			set = stmt.executeQuery();
+			
+			while(set.next()) {
+				u = new User(
+						set.getInt(1),
+						set.getString(2),
+						set.getString(3)
+						);
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			ConnectionClosers.closeConnection(conn);
+			ConnectionClosers.closeStatement(stmt);
+			ConnectionClosers.closeResultSet(set);
+		}
+
+		return u;
+	}
+
+	@Override
+	public void insertUser(User u) {
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		/*
+		 * We don't want to directly put the values we'll input int our
+		 * database here. We'll instead parameterize our query and use
+		 * a prepared statement. Prepared Statements pre-compile our
+		 * queries and allow us to protect against SQL injection.
+		 */
+		final String SQL = "INSERT INTO users VALUES(default, ?, ?)";
+		
+		try {
+			conn = ConnectionFactory.getConnection();
+			/*
+			 * We'll be using a Prepared Statement. A Prepared Statement
+			 * is a special statement that protects against SQL injection.
+			 */
+			stmt = conn.prepareStatement(SQL);
+			/*
+			 * Here we're telling JDBC to attach the value that
+			 * u.getName() returns to question mark 1 and to attach
+			 * the value that u.getPassword() returns to question mark 2.
+			 */
+			stmt.setString(1, u.getName());
+			stmt.setString(2, u.getPassword());
+			stmt.execute();
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			ConnectionClosers.closeConnection(conn);
+			ConnectionClosers.closeStatement(stmt);
+		}
+
+	}
+
+	@Override
+	public void updateUser(User u) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void insertUser() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void updateUser() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void deleteUser() {
-		// TODO Auto-generated method stub
+	public void deleteUser(User u) {
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		final String SQL = "DELETE FROM users WHERE users_id = ?";
+		
+		try {
+			conn = ConnectionFactory.getConnection();
+			stmt = conn.prepareStatement(SQL);
+			stmt.setInt(1, u.getId());
+			stmt.execute();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			ConnectionClosers.closeConnection(conn);
+			ConnectionClosers.closeStatement(stmt);
+		}
 
 	}
 

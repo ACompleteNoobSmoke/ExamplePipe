@@ -13,18 +13,26 @@ public class ConnectionFactory {
 	
 	public static Connection getConnection() {
 		
-		if(conn == null) {
-			try {
-				/*
-				 * Hardcoding your url, username, and password into the application
-				 * is bad practice (primarily for security reasons). We can instead
-				 * use environment variables to obscure our login credentials.
-				 */
-				conn = DriverManager.getConnection(System.getenv("dburl"), "user", "password");
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+		try {
+			if(conn == null || conn.isClosed()) {
+				try {
+					/*
+					 * Hardcoding your url, username, and password into the application
+					 * is bad practice (primarily for security reasons). We can instead
+					 * use environment variables to obscure our login credentials.
+					 */
+					Class.forName("org.postgresql.Driver");
+					conn = DriverManager.getConnection(System.getenv("dburl"), System.getenv("dbusername"), System.getenv("dbpassword"));
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch(ClassNotFoundException e) {
+					e.printStackTrace();
+				}
 			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
 		return conn;

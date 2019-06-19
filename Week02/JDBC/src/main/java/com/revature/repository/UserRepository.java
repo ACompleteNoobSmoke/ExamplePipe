@@ -7,8 +7,8 @@ import com.revature.model.User;
 public interface UserRepository {
 
 	public List<User> getAllUsers();
-	public void getUserById(int id);
-	public void insertUser();
-	public void updateUser();
-	public void deleteUser();
+	public User getUserById(int id);
+	public void insertUser(User u);
+	public void updateUser(User u);
+	public void deleteUser(User u);
 }
