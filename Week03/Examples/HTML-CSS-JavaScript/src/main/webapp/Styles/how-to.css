@@ -1,0 +1,53 @@
+/*
+ * This is the best place for your CSS. It makes your styles more readable
+ * and allows you to more easily make changes to your document's style.
+ */
+ 
+ /*
+  *There are several ways to select elements in our HTML documents.
+  *We can do so by class name, id, tag name, etc. That said, let's
+  *play around with some of these selectors.
+  */
+  
+  /*Let's first select an element by id*/
+  #theBiggest {
+  	color: red;
+  	font-family: Verdana;
+  }
+  
+  #secondLargest {
+  	color: olive;
+  }
+  
+  /*This selects all elements that have the style attribute*/
+  [style] {
+  	color: fuchsia;
+  }
+  
+  /*This selects all elements that have the style attribute with the
+  corresponding value*/
+  [style="text-align: center"]{
+  	color: orange;
+  }
+  
+  /*This selects all paragraph tags where the parent is a div*/
+  div > p {
+  	font-family: cursive;
+  }
+  
+  /*Of course, you can also select by element/tag name*/
+  ol{
+  	list-style-type: lower-greek;
+  }
+  
+  ol, ul{
+  	color: aqua;
+  }
+  
+  /*We can also select by class*/
+  .form-item{
+  	margin-bottom: 10px;
+  	margin-right: 10px;
+  	display: flex;
+  	flex-direction: row;
+  }
