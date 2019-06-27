@@ -23,6 +23,22 @@ let t = true; //boolean
 let obj = {name:'Christina', hairType:4}; //object
 let nul = null //null
 let str = "Christina"//string
+	
+/*
+ * Of these 7 data types, two are "objects" whereas the others(minus
+ * null and undefined) are primitives.
+ * 
+ * Functions and objects are objects, which means their prototype is
+ * object. And, technically, null is an object, but this was not
+ * intentional.
+ * 
+ */
+	
+/*These are Wrapper classes in JavaScript. It's bad practice to use them.*/
+let s = new String();
+let b = new Boolean();
+let n = new Number();
+
 
 //Template Literals
 	
@@ -33,5 +49,12 @@ let str = "Christina"//string
 //console.log() is the equivalent of sysout in Java
 console.log(`Whaddup, my name is ${str}`);
 console.log(`${num + num}`);
+
+//Undefined vs Null
+
+/*The "undefined" data type signifies that a property of an object does
+ * not exist whereas "null" is used for the intentional absence of a value,
+ * referenced object, etc.
+ */
 
 
