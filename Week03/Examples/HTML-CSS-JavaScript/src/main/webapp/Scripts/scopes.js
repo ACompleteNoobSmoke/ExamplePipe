@@ -80,6 +80,23 @@ function chaChaSlide(){} //function declaration
 
 var catDaddy = function() {}; //function expression
 
+/*We can use the JavaScript keywords "let", "const", and "var" to control
+ * the scopes of variables (among other things).
+ *
+ *Any variable that is declared using the "var" keyword will be hoisted
+ *to the top of its scope.
+ *
+ *Any variable that is declared using the "let" keyword is lexically
+ *scoped (so it has block scope). You also will NOT be able to redeclare
+ *variables that are declared using the "let" keyword.
+ *
+ *Any variable that is declared using the "const" keyword is lexically
+ *scoped. You also will NOT be able to redeclare it, nor will you be
+ *able to reassign it.
+ *
+ *NOTE: Using "var" is considered bad practice. That's because it doesn't
+ *provide any protection against redeclarations.
+ */
 
 /*If you use JavaScript in strict mode by typing 'use strict', you will
  * not be able redeclare variables, etc.

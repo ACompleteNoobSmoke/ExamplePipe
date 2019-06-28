@@ -1,0 +1,29 @@
+h5, h2 {
+	text-align: center;
+}
+
+#apiDivHeader{
+	margin-top: 50px;
+	text-align: center;
+}
+/*We're using CSS Grid instead of bootstrap to
+create our rows and columns. In order to use CSS
+Grid, we're using the "display" property.*/
+#apiDiv{
+	display: grid;
+	grid-template-rows: 350px 350px 350px 350px;
+	grid-template-columns: 150px 150px 150px 150px 150px;
+	row-gap: 100px, 100px, 100px;
+	column-gap: 100px;
+	height: 700px;
+	margin-top: 15px;
+}
+
+.bg-custom{
+	background-color: lavenderblush;
+}
+
+img{
+	width: 200px;
+	margin-left: 35px;
+}
