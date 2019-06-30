@@ -38,8 +38,8 @@ function get(url){
 	 * In order to get any resources from this API we're using, we have to
 	 * set some request headers in order to be authenticated.
 	 */
-	xhr.setRequestHeader("X-RapidAPI-Host", "movie-database-imdb-alternative.p.rapidapi.com");
-	xhr.setRequestHeader("X-RapidAPI-Key", "2f530a3db3msh028512351081690p171600jsnf425ee1b906c");
+	xhr.setRequestHeader("", "");
+	xhr.setRequestHeader("", "");
 	xhr.send(); //Ready State 2
 }
 
