@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
@@ -29,7 +32,7 @@ public class RequestDispatcher extends HttpServlet {
 	 * Let's create a logger.
 	 */
 	
-//	private static final Logger LOGGY = LogManager.getLogger(RequestDispatcher.class);
+	private static final Logger LOGGY = LogManager.getLogger(RequestDispatcher.class);
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -43,7 +46,7 @@ public class RequestDispatcher extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-//		LOGGY.info("The request is in the Request Dispatcher. The Request URL is: " + request.getRequestURI());
+		LOGGY.info("The request is in the Request Dispatcher. The Request URL is: " + request.getRequestURI());
 		
 		/*
 		 * This method returns the HTTP VERB associated with the request.
