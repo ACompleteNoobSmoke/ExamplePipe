@@ -66,6 +66,22 @@ function get(url, element) {
 	xhr.send(); // Ready State 2
 }
 
+function post(url){
+	
+	let obj = {prop1:"property 1", prop2:"property 2", prop3:8};
+	
+	let xhr = new XMLHttpRequest();
+	
+	xhr.onreadystatechange = function(){
+		if(xhr.readyState === 4 && xhr.status === 200){
+			console.log("Post Request Successful");
+		}
+	}
+	
+	xhr.open("POST", url);
+	xhr.send(JSON.stringify(obj));
+}
+
 function propagateAPIMovies(searchTerm) {
 	let url = "https://movie-database-imdb-alternative.p.rapidapi.com/?s="
 			+ searchTerm;
@@ -74,4 +90,5 @@ function propagateAPIMovies(searchTerm) {
 
 window.onload = function() {
 	this.propagateAPIMovies('Star Trek');
+	this.post("/ServletDemo/getflixapi/movie/create");
 }

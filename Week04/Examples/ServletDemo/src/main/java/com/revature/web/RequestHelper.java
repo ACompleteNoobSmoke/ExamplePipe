@@ -1,10 +1,15 @@
 package com.revature.web;
 
+import java.io.BufferedWriter;
 import java.io.IOException;
+import java.util.stream.Collectors;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import com.revature.service.MovieServiceImpl;
 import com.revature.service.UserServiceImpl;
@@ -13,6 +18,8 @@ import com.revature.service.UserServiceImpl;
  * Our Request is a class that returns objects to our Request Dispatcher Servlet.
  */
 public class RequestHelper {
+	
+	public static final Logger LOGGY = LogManager.getLogger(RequestHelper.class);
 
 	public static Object processGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException{
 		
@@ -44,6 +51,8 @@ public static Object processPost(HttpServletRequest req, HttpServletResponse res
 			}
 		
 		case "/movie/create":
+			String body = req.getReader().lines().collect(Collectors.joining());
+			LOGGY.info("The movie info is: "+ body);
 			return new MovieServiceImpl().insertMovie(req, resp);
 			
 		default:
