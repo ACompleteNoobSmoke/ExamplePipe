@@ -55,6 +55,9 @@ public static Object processPost(HttpServletRequest req, HttpServletResponse res
 			String body = req.getReader().lines().collect(Collectors.joining());
 			Movie received = new ObjectMapper().readValue(body, Movie.class);
 			LOGGY.info("The movie info is: "+ received);
+			/*
+			 * This code should be refactored/moved to the service layer.
+			 */
 			return new MovieServiceImpl().insertMovie(req, resp);
 			
 		default:
