@@ -1,6 +1,5 @@
 package com.revature.web;
 
-import java.io.BufferedWriter;
 import java.io.IOException;
 import java.util.stream.Collectors;
 
@@ -11,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.revature.model.Movie;
 import com.revature.service.MovieServiceImpl;
 import com.revature.service.UserServiceImpl;
 
@@ -52,7 +53,8 @@ public static Object processPost(HttpServletRequest req, HttpServletResponse res
 		
 		case "/movie/create":
 			String body = req.getReader().lines().collect(Collectors.joining());
-			LOGGY.info("The movie info is: "+ body);
+			Movie received = new ObjectMapper().readValue(body, Movie.class);
+			LOGGY.info("The movie info is: "+ received);
 			return new MovieServiceImpl().insertMovie(req, resp);
 			
 		default:

@@ -68,7 +68,7 @@ function get(url, element) {
 
 function post(url){
 	
-	let obj = {prop1:"property 1", prop2:"property 2", prop3:8};
+	let obj = {id:1, name:"property 2", rating:8, url:"url", genreId:0};
 	
 	let xhr = new XMLHttpRequest();
 	
